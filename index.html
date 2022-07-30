@@ -1,0 +1,204 @@
+<html>
+  <head>
+    <title>ADV-C121: CASE STUDY GOOGLE LENS VS MOBILENET - 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+  <center>
+        <p>ADV-C121: CASE STUDY GOOGLE LENS VS MOBILENET - 2 <br> CASE STUDY BETWEEN GOOGLE LENS AND MOBILENET</p>
+        <span class="google_lens">GOOGLE LENS <img src="https://www.bing.com/th?id=Ad4c93f2425bde88c5133a1081ee67f19&w=110&h=110&c=7&rs=1&qlt=80&o=6&dpr=1.5&pid=SANGAM"></span>
+        <p>VS</p>
+        <p class="btn btn-primary" id="mobilenet">Mobilenet</p>
+        <hr>
+        <ol>
+          <div class="test_image_and_result1 col-xs-12">
+            <li class="col-sm-4 col-xs-12">
+              <b class="white1">Test Image - </b>
+              <img class="img" src="https://media.istockphoto.com/photos/red-apple-picture-id184276818?k=20&m=184276818&s=612x612&w=0&h=QxOcueqAUVTdiJ7DVoCu-BkNCIuwliPEgtAQhgvBA_g=">
+            </li>
+            <h5 class="first col-sm-4 col-xs-12">
+              Output on <b>GOOGLE LENS</b> - 
+              <span>Fuji</span>
+            </h5>
+            <h5 class="second col-sm-4 col-xs-12">
+              Output on <b>Mobilenet Model </b> - 
+              <span>Punching Bag, Punch Bag, Punching Ball, Punchball</span>
+            </h5>
+            <div class="mini_result" class="col-xs-12">
+              <h4>Result - </h4>
+              <hr>
+              <h4>GOOGLE LENS Is More Accurate</h4>
+            </div>
+          </div>
+          <div class="test_image_and_result2 col-xs-12">
+            <li class="col-sm-4 col-xs-12">
+              <b class="white2">Test Image - </b>
+              <img class="img" src="https://media.istockphoto.com/photos/tennis-ball-picture-id172233063?k=20&m=172233063&s=612x612&w=0&h=4YwCm2GYIsIULAqm78X0EQvXWyDv1mXAf7Y4oCu9myk=">
+            </li>
+            <h5 class="first col-sm-4 col-xs-12">
+              Output on <b>GOOGLE LENS</b> - 
+              <span>Strenghtening Hand Grip</span>
+            </h5>
+            <h5 class="second col-sm-4 col-xs-12">
+              Output on <b>Mobilenet Model </b> - 
+              <span>Tennis Ball</span>
+            </h5>
+            <div class="mini_result" class="col-xs-12">
+              <h4>Result - </h4>
+              <hr>
+              <h4>GOOGLE LENS Is More Accurate</h4>
+            </div>
+          </div>
+          <div class="test_image_and_result3 col-xs-12">
+            <li class="col-sm-4 col-xs-12">
+              <b class="white3">Test Image - </b>
+              <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/2324px-Banana-Single.jpg">
+            </li>
+            <h5 class="first col-sm-4 col-xs-12">
+              Output on <b>GOOGLE LENS</b> - 
+              <span>Banana</span>
+            </h5>
+            <h5 class="second col-sm-4 col-xs-12">
+              Output on <b>Mobilenet Model </b> - 
+              <span>Banana</span>
+            </h5>
+            <div class="mini_result" class="col-xs-12">
+              <h4>Result - </h4>
+              <hr>
+              <h4>Draw</h4>
+            </div>
+          </div>
+          <div class="test_image_and_result4 col-xs-12">
+            <li class="col-sm-4 col-xs-12">
+              <b class="white4">Test Image - </b>
+              <img class="img" src="data:image/jpeg;base64,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WSlZtFNyVmbfqAKz1eVah1RK8RHRfXYDKDdva0rbSu38S8Q5VqRLE7gjZs+YXk6TN1TYQ8fskHO6qPYpT3ssUHjrgfQrBVwE1Yt/1dh3yKe5UnUZJqjSPiEJ0n4FhtJa7e6Rz6crd+8DWpn1sVHqnhODOh64m1l7t7k2l0A/42pBzumZssJ/NOZj848L5V094nC2/D8rstykMHoVuZkuqFNGzgTpswvGoS27e6VErnRs5yCtypyfUF0lotRGAMbrba1MTw3vDUhVXo2bbz5pxw9EDD6VAYZFso5MqVjunEJPvXSqXKNQKpkhjIZ+GMZrHG47WaEMiO/2RCi6XI9U2nLOBOl63XUYF291fUvlLPeBHShUDWRdnqOXFMrs6Kd33rHodkpOWozb9gVdZsoVBmkdwXWuxbBpgbt7nTQtEj9+4G4Wt6zam9M7gj2J2Ynu1t/lTSyEb+O/iQUbHI9ik8F8I8ddEVY6qH+MneFVB8mmcVv4lkiqdTujbES44JhFHvaOviqWvlb7zRdTMmV5zWGXgzoHHoqy9x3NlI5mnzaZsg53RR7NDyYTmfxGRYquLZp+XC8teWIK602TKlsMTDEbtw/HYiLt7epeTE3nIK8VWSaowyMEVyaLAoBrbrdTvZwvQGlBCUMe2fC3Fx8yFAUcezM8E6rz+U+ldMo8pTtn0zGdH1w11be47lLDoh/vlQ1JkarFM1hhIcMv1NGW3Z3V1S6RrN++xugrNbF11d/Rnyx9gB6VkwbC+HzBKwi7RilXK7vWZNI/Xz6NvfVrrck1RdWlsV+GkwJ0fXN1+p2NbMd/FrVhyplGSDEa6slADZpJeB1tNxI/TLtR1bra++VUlXlERZbEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREH/2Q==">
+            </li>
+            <h5 class="first col-sm-4 col-xs-12">
+              Output on <b>GOOGLE LENS</b> - 
+              <span>Divo Jumbo Comb</span>
+            </h5>
+            <h5 class="second col-sm-4 col-xs-12">
+              Output on <b>Mobilenet Model </b> - 
+              <span>Microphone, Mike</span>
+            </h5>
+            <div class="mini_result" class="col-xs-12">
+              <h4>Result - </h4>
+              <hr>
+              <h4>GOOGLE LENS Is More Accurate</h4>
+            </div>
+          </div>
+          <div class="test_image_and_result5 col-xs-12">
+            <li class="col-sm-4 col-xs-12">
+              <b class="white5">Test Image - </b>
+              <img class="img" src="https://m.media-amazon.com/images/I/712TaM-9wYL._SL1500_.jpg">
+            </li>
+            <h5 class="first col-sm-4 col-xs-12">
+              Output on <b>GOOGLE LENS</b> - 
+              <span>JBL JR300</span>
+            </h5>
+            <h5 class="second col-sm-4 col-xs-12">
+              Output on <b>Mobilenet Model </b> - 
+              <span>Muzzle</span>
+            </h5>
+            <div class="mini_result" class="col-xs-12">
+              <h4>Result - </h4>
+              <hr>
+              <h4>GOOGLE LENS Is More Accurate</h4>
+            </div>
+          </div>
+          <div class="test_image_and_result6 col-xs-12">
+            <li class="col-sm-4 col-xs-12">
+              <b class="white6">Test Image - </b>
+              <img class="img" src="https://www.collinsdictionary.com/images/full/key_69270748_1000.jpg">
+            </li>
+            <h5 class="first col-sm-4 col-xs-12">
+              Output on <b>GOOGLE LENS</b> - 
+              <span>Key Chain</span>
+            </h5>
+            <h5 class="second col-sm-4 col-xs-12">
+              Output on <b>Mobilenet Model </b> - 
+              <span>Holster</span>
+            </h5>
+            <div class="mini_result" class="col-xs-12">
+              <h4>Result - </h4>
+              <hr>
+              <h4>GOOGLE LENS Is More Accurate</h4>
+            </div>
+          </div>
+          <div class="test_image_and_result7 col-xs-12">
+            <li class="col-sm-4 col-xs-12">
+              <b class="white7">Test Image - </b>
+              <img class="img" src="https://www.raajkart.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/7/c/7c_1.jpeg">
+            </li>
+            <h5 class="first col-sm-4 col-xs-12">
+              Output on <b>GOOGLE LENS</b> - 
+              <span>KSB</span>
+            </h5>
+            <h5 class="second col-sm-4 col-xs-12">
+              Output on <b>Mobilenet Model </b> - 
+              <span>Screwdriver</span>
+            </h5>
+            <div class="mini_result" class="col-xs-12">
+              <h4>Result - </h4>
+              <hr>
+              <h4>GOOGLE LENS Is More Accurate</h4>
+            </div>
+          </div>
+          <div class="test_image_and_result8 col-xs-12">
+            <li class="col-sm-4 col-xs-12">
+              <b class="white8">Test Image - </b>
+              <img class="img" src="https://m.media-amazon.com/images/I/31-oSLJMpUL.jpg">
+            </li>
+            <h5 class="first col-sm-4 col-xs-12">
+              Output on <b>GOOGLE LENS</b> - 
+              <span>Pinking Shears 7</span>
+            </h5>
+            <h5 class="second col-sm-4 col-xs-12">
+              Output on <b>Mobilenet Model </b> - 
+              <span>Vacuum, Vacuum Cleaner</span>
+            </h5>
+            <div class="mini_result" class="col-xs-12">
+              <h4>Result - </h4>
+              <hr>
+              <h4>GOOGLE LENS Is More Accurate</h4>
+            </div>
+          </div>
+          <div class="test_image_and_result9 col-xs-12">
+            <li class="col-sm-4 col-xs-12">
+              <b class="white9">Test Image - </b>
+              <img class="img" src="https://m.media-amazon.com/images/I/51aAu04384L._SL1500_.jpg">
+            </li>
+            <h5 class="first col-sm-4 col-xs-12">
+              Output on <b>GOOGLE LENS</b> - 
+              <span>Steel Dinner Spoon</span>
+            </h5>
+            <h5 class="second col-sm-4 col-xs-12">
+              Output on <b>Mobilenet Model </b> - 
+              <span>Microphone, Mike</span>
+            </h5>
+            <div class="mini_result" class="col-xs-12">
+              <h4>Result - </h4>
+              <hr>
+              <h4>GOOGLE LENS Is More Accurate</h4>
+            </div>
+          </div>
+        </ol>
+        <h6 class="bottom1">
+          I texted 9 objects <b>GOOGLE LENS</b> Have Predicted 9 Of Them More Accurately And <b>MOBILE NET</b> Was Less Accurately So According To My Case Study <b>GOOGLE LENS</b> Is More Accurate.
+        </h6>
+        <br><br>
+  </center>
+  <p class="bottom">Developed by - Krishiv Agarwal</p>
+  </body>
+</html>
